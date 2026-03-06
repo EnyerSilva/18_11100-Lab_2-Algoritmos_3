@@ -60,6 +60,12 @@ fun esSeguro(tablero: Array<IntArray>, fila: Int, col: Int, num: Int): Boolean {
     return true
 }
 
-//fun ImprimirTablero(tablero: Array<IntArray>) {
-//
-//}
+fun ImprimirTablero(tablero: Array<IntArray>) {
+    val resultado = StringBuilder()
+    for (f in 0 until 9) {
+        for (c in 0 until 9){
+            resultado.append(tablero[f][c])
+        }
+    }
+    println(resultado.toString())
+}
