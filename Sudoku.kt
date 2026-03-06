@@ -25,13 +25,41 @@ fun main(args: Array<Strings>) {
 }
 
 fun resolver(tablero: Array<IntArray>, fila: Int, col: Int): Boolean {
+    if (fila == 9) return true
 
+    val siguienteFila = if (col == 8) fila + 1 else fila
+    val siguienteCol = if (col == 8) 0 else col + 1
+
+    if (tablero[fila][col] != 0) {
+        return resolver(tablero, siguienteFila, siguienteCol)
+    }
+
+    for (num in 1..9) {
+
+        if (esSeguro(tablero, fila, col, num)) {
+            tablero[fila][col] = num
+
+            if (resolver(tablero, siguienteFila, siguienteCol)) return true
+
+            tablero[fila][col] = 0
+        }
+    }
+    return false
 }
 
 fun esSeguro(tablero: Array<IntArray>, fila: Int, col: Int, num: Int): Boolean {
+    for (i in 0 until 9) {
+        if (tablero[fila][i] == num) return false
 
+        if (tablero[i][col] == num) return false
+
+        val filaInicio = (fila/3)*3
+        val colInicio = (col/3)*3
+        if (tablero[filaInicio + (i/3)][colInicio + (i%3)] == num) return false
+    }
+    return true
 }
 
-fun ImprimirTablero(tablero: Array<IntArray>) {
-    
-}
+//fun ImprimirTablero(tablero: Array<IntArray>) {
+//
+//}
