@@ -15,5 +15,12 @@ fun main(args: Array<Strings>) {
         tablero[i/9][i%9] = cadenaEntrada[i]
     }
 
-    
+    if(resolver(tablero, 0, 0)) {
+        imprimirTablero(tablero)
+    }
+
+    else {
+        println("NOSOLUTION")
+    }
 }
+
