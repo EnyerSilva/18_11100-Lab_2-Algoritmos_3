@@ -7,4 +7,9 @@
 
 fun main(args: Array<Strings>) {
     if (args.isEmpty() || args[0].length != 81) return
+
+    val cadenaEntrada = args[0]
+    val tablero = Array(9) {IntArray(9)}
+
+    
 }
