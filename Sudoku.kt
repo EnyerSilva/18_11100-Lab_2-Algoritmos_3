@@ -18,6 +18,20 @@ fun main(args: Array<String>) {
         tablero[i/9][i%9] = cadenaEntrada[i] - '0'
     }
 
+    for (f in 0 until 9) {
+        for (c in 0 until 9) {
+            val num = tablero[f][c]
+            if (num != 0) {
+                tablero[f][c] = 0
+                if (!esSeguro(tablero, f, c, num)) {
+                    println ("NOSOLUTION")
+                    return
+                }
+                tablero[f][c] = num
+            }
+        }
+    }
+
     if(resolver(tablero, 0, 0)) {
         imprimirTablero(tablero)
     }
