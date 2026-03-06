@@ -61,7 +61,7 @@ fun resolver(tablero: Array<IntArray>, fila: Int, col: Int): Boolean {
     val siguienteFila = if (col == 8) fila + 1 else fila
     val siguienteCol = if (col == 8) 0 else col + 1
 
-    // Si la cel ya tiene número entonces se salta a la siguiente celda
+    // Si la celda ya tiene número entonces se salta a la siguiente celda
     if (tablero[fila][col] != 0) {
         return resolver(tablero, siguienteFila, siguienteCol)
     }
