@@ -11,5 +11,9 @@ fun main(args: Array<Strings>) {
     val cadenaEntrada = args[0]
     val tablero = Array(9) {IntArray(9)}
 
+    for (i in 0 until 81) {
+        tablero[i/9][i%9] = cadenaEntrada[i]
+    }
+
     
 }
