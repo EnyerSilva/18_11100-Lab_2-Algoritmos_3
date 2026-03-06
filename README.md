@@ -5,5 +5,6 @@ El solver de Sudoku realizado en este laboratorio cuenta con dos niveles de poda
 
 La técnica de retroceso aplicada consiste en las funciones "esSeguro()" y "resolver()", donde si ún número elegido no es posible colocarlo de ninguna manera en una celda entonces el algoritmo deshace todos los pasos que hizo e intenta de nuevo desviandose por alguna otra rama probando cada posibilidad hasta que llega a la rama de la solución que es la correcta o devolver que no hay solución para el tablero actual.
 
-EStudiante: Enyerber Silva
+Estudiante: Enyerber Silva
+
 Carnet: 18-11100
