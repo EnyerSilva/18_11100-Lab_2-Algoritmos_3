@@ -24,3 +24,14 @@ fun main(args: Array<Strings>) {
     }
 }
 
+fun resolver(tablero: Array<IntArray>, fila: Int, col: Int): Boolean {
+
+}
+
+fun esSeguro(tablero: Array<IntArray>, fila: Int, col: Int, num: Int): Boolean {
+
+}
+
+fun ImprimirTablero(tablero: Array<IntArray>) {
+    
+}
