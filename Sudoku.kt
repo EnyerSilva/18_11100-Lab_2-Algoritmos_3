@@ -5,3 +5,6 @@
 * Carnet: 18-11100
 */
 
+fun main(args: Array<Strings>) {
+    if (args.isEmpty() || args[0].length != 81) return
+}
