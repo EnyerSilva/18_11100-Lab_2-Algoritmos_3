@@ -50,35 +50,50 @@ fun main(args: Array<String>) {
     }
 }
 
+/* 
+ * Función que se encarga de aplicar el Backtraking. 
+ */
 fun resolver(tablero: Array<IntArray>, fila: Int, col: Int): Boolean {
+    // Si la fila llega a 9 entonces se ha recorrido todo el tablero
     if (fila == 9) return true
 
+    // Se realiza el recorrido por filas
     val siguienteFila = if (col == 8) fila + 1 else fila
     val siguienteCol = if (col == 8) 0 else col + 1
 
+    // Si la cel ya tiene número entonces se salta a la siguiente celda
     if (tablero[fila][col] != 0) {
         return resolver(tablero, siguienteFila, siguienteCol)
     }
 
+    // Se intenta colocar número del 1 al 9
     for (num in 1..9) {
-
+        // Procedemo si el número cumple con las condiciones de las reglas del Sudoku
         if (esSeguro(tablero, fila, col, num)) {
-            tablero[fila][col] = num
+            tablero[fila][col] = num // Intento
 
+            // Si el número que se decidió agregar funciona entonces continuamos
             if (resolver(tablero, siguienteFila, siguienteCol)) return true
 
+            // Si el número no es una buena decisión entonces se reinicia
             tablero[fila][col] = 0
         }
     }
+    // Si ninguno de los números puede ser colocado entonces no hay solución en esta rama
     return false
 }
 
+// Recorre filas, columnas y cuadrículas para verificar si el número elegido es posible de colocar
 fun esSeguro(tablero: Array<IntArray>, fila: Int, col: Int, num: Int): Boolean {
     for (i in 0 until 9) {
+
+        // Verifica que no haya un número igual en la fila
         if (tablero[fila][i] == num) return false
 
+        // Verifica que no haya un número igual en la columna
         if (tablero[i][col] == num) return false
 
+        // Verificación en la cuadrícula 3x3
         val filaInicio = (fila/3)*3
         val colInicio = (col/3)*3
         if (tablero[filaInicio + (i/3)][colInicio + (i%3)] == num) return false
@@ -86,8 +101,11 @@ fun esSeguro(tablero: Array<IntArray>, fila: Int, col: Int, num: Int): Boolean {
     return true
 }
 
+/*
+ * Convierte la matriz resuelta en una cadena de 81 carácteres
+ */
 fun imprimirTablero(tablero: Array<IntArray>) {
-    val resultado = StringBuilder()
+    val resultado = StringBuilder() // Se usa la función StringBuilder() para la construcción del string de salida
     for (f in 0 until 9) {
         for (c in 0 until 9){
             resultado.append(tablero[f][c])
