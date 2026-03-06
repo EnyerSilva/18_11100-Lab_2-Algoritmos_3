@@ -6,7 +6,10 @@
 */
 
 fun main(args: Array<String>) {
-    if (args.isEmpty() || args[0].length != 81) return
+    if (args.isEmpty() || args[0].length != 81){
+        println ("Ingrese una cadena de caracteres de 81 dígitos para iniciar el solver de Sudoku")
+        return
+    }
 
     val cadenaEntrada = args[0]
     val tablero = Array(9) {IntArray(9)}
@@ -60,7 +63,7 @@ fun esSeguro(tablero: Array<IntArray>, fila: Int, col: Int, num: Int): Boolean {
     return true
 }
 
-fun ImprimirTablero(tablero: Array<IntArray>) {
+fun imprimirTablero(tablero: Array<IntArray>) {
     val resultado = StringBuilder()
     for (f in 0 until 9) {
         for (c in 0 until 9){
