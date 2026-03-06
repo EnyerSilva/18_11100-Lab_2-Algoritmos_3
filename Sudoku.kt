@@ -5,14 +5,14 @@
 * Carnet: 18-11100
 */
 
-fun main(args: Array<Strings>) {
+fun main(args: Array<String>) {
     if (args.isEmpty() || args[0].length != 81) return
 
     val cadenaEntrada = args[0]
     val tablero = Array(9) {IntArray(9)}
 
     for (i in 0 until 81) {
-        tablero[i/9][i%9] = cadenaEntrada[i]
+        tablero[i/9][i%9] = cadenaEntrada[i] - '0'
     }
 
     if(resolver(tablero, 0, 0)) {
